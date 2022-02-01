@@ -1,10 +1,16 @@
-import { diffDates, diffToHtml } from "./datecalc.js"; // 1
-import { formatError } from "./utils.js"; // 2
+import { diffDates, diffToHtml } from "./datecalc.js";
+import { formatError } from "./utils.js";
+import { showTimer, showCalc } from "./switch.js";
+import "./timer.js"
 
-const dateCalcForm = document.getElementById("datecalc");
 const dateCalcResult = document.getElementById("datecalc__result");
+const dateCalcForm = document.getElementById("datecalc");
+const timerIsShown = document.getElementById('switch-timer');
+const calcIsShown = document.getElementById('switch-calc');
 
 dateCalcForm.addEventListener("submit", handleCalcDates);
+timerIsShown.onclick = showTimer;
+calcIsShown.onclick = showCalc;
 
 function handleCalcDates(event) {
     dateCalcResult.innerHTML = "";
@@ -14,8 +20,8 @@ function handleCalcDates(event) {
     firstDate = firstDate.value, secondDate = secondDate.value;
 
     if (firstDate && secondDate) {
-        const diff = diffDates(firstDate, secondDate); // 3
-        dateCalcResult.innerHTML = diffToHtml(diff); // 4
+        const diff = diffDates(firstDate, secondDate);
+        dateCalcResult.innerHTML = diffToHtml(diff);
     }
-    else dateCalcResult.innerHTML = formatError("Для расчета промежутка необходимо заполнить оба поля"); // 5
+    else dateCalcResult.innerHTML = formatError("Для расчета промежутка необходимо заполнить оба поля");
 }

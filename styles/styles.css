@@ -1,0 +1,18 @@
+.hidden {
+	display: none;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+}
+
+.timer {
+	color:brown;
+	font:700 28px/37px arial;
+	margin-top: 20px;
+}
+
+.btn-block {
+	margin-top: 30px;
+}
